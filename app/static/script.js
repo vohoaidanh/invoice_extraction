@@ -16,7 +16,7 @@ function uploadFile() {
 
     document.getElementById("resultText").value = "";
 
-    fetch("http://localhost:8000/extract-invoice", {
+    fetch("/extract-invoice", {
         method: "POST",
         body: formData
     })

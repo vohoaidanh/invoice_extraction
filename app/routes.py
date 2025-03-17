@@ -26,3 +26,9 @@ async def extract_invoice(file: UploadFile = File(...), use_google_vision: bool 
 async def extract_invoice(extracted_text: str):
     extracted_details = extract_invoice_details(extracted_text)
     return extracted_details
+
+
+# Router xử lý yêu cầu POST và gọi hàm extract_invoice_details
+@router.get("/health_check/")
+async def health_check():
+    return "Ok"
