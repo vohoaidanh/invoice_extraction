@@ -4,6 +4,8 @@ import os
 import cv2
 import numpy
 from pyclipper import *
+from pyclipper import JT_ROUND, ET_CLOSEDPOLYGON, PyclipperOffset
+
 from shapely.geometry import Polygon
 
 from app.utils.util import CTCDecoder
