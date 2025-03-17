@@ -7,7 +7,7 @@ from app.models.invoice import InvoiceResponse, ExtractedInvoice
 router = APIRouter()
 
 @router.post("/extract-invoice", response_model=ExtractedInvoice)
-async def extract_invoice(file: UploadFile = File(...), use_google_vision: bool = Query(False)):
+async def extract_invoice(file: UploadFile = File(...)):
     file_bytes = await file.read()
 
     extracted_text = extract_text_ocr(file_bytes, file.filename)

@@ -1,6 +1,5 @@
 import requests
 import json
-#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
 import os
 from groq import Groq
 from dotenv import load_dotenv
