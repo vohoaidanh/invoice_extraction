@@ -26,7 +26,8 @@ def extract_text_ocr(file_bytes: bytes, filename: str):
     else:
         np_arr = np.frombuffer(file_bytes, np.uint8)
         img = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
-        #img = resize_with_aspect_ratio(img, target_height=800)
+    
+    img = resize_with_aspect_ratio(img, target_height=1024)
 
     # Sử dụng PaddleOCR để nhận diện văn bản
     
