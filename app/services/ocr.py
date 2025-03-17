@@ -6,8 +6,10 @@ from paddleocr import PaddleOCR
 ocr = PaddleOCR(use_angle_cls=True, 
                 rec_algorithm='CRNN', 
                 det_db_box_thresh=0.5, 
-                lang="en",
-                rec_model_dir="app/models/en_PP-OCRv3_rec_slim_infer")  # Hỗ trợ tiếng Anh, có thể đổi sang 'vi'
+                lang="ch",
+                rec_model_dir="app/models/en_PP-OCRv3_rec_slim_infer",
+                use_onnx=False,
+                use_paddlelite=True)
 
 def resize_with_aspect_ratio(img, target_height=512):
     """ Resize ảnh sao cho chiều cao = target_height nhưng giữ nguyên tỷ lệ """

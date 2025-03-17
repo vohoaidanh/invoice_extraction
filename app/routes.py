@@ -1,5 +1,5 @@
 from fastapi import APIRouter, UploadFile, File, Query
-from app.services.ocr import extract_text_ocr
+from app.services.orc_onnx import extract_text_ocr
 from app.services.groq import extract_invoice_details
 
 from app.models.invoice import InvoiceResponse, ExtractedInvoice
