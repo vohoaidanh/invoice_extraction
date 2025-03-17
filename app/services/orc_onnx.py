@@ -12,11 +12,6 @@ classification = nn.Classification('app/models/onnx/classification.onnx')
 
 recognition = nn.Recognition('app/models/onnx/en_PP-OCRv3_rec_infer.onnx')
 
-
-# Load mô hình ONNX
-onnx_model_path = "app/models/onnx/en_PP-OCRv3_rec_infer.onnx"
-ort_session = ort.InferenceSession(onnx_model_path, providers=["CPUExecutionProvider"])
-
 def resize_with_aspect_ratio(img, target_height=32):
     """Resize ảnh sao cho chiều cao = target_height nhưng giữ nguyên tỷ lệ"""
     h, w = img.shape[:2]
@@ -36,7 +31,9 @@ def extract_text_ocr(file_bytes: bytes, filename: str):
         np_arr = np.frombuffer(file_bytes, np.uint8)
         img = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
     
-    
+    if img.shape[0] > 1200:  # Kiểm tra height
+        img = resize_with_aspect_ratio(img, target_height=1200)
+
     points = detection(img)
     points = util.sort_polygon(list(points))
 
