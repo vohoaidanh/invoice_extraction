@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trích Xuất Hóa Đơn</title>
+    <!-- Thêm Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <h2 class="text-center text-primary">Trích Xuất Hóa Đơn</h2>
+
+            <!-- Form Upload -->
+            <div class="mb-3">
+                <label for="fileInput" class="form-label">Chọn hóa đơn (PDF, JPG, PNG)</label>
+                <input type="file" class="form-control" id="fileInput" accept=".pdf,.jpg,.png">
+            </div>
+            <div class="d-grid">
+                <!-- Thêm thuộc tính disabled cho nút -->
+                <button class="btn btn-primary" id="uploadButton" onclick="uploadFile()">📤 Upload & Trích Xuất</button>
+            </div>
+
+            <!-- Hiển thị biểu tượng loading -->
+            <div id="loading" class="d-none text-center mt-4">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p>Đang xử lý...</p>
+            </div>
+
+            <!-- Hiển thị nội dung hóa đơn -->
+            <h3 class="mt-4 text-secondary">📄 Kết Quả:</h3>
+            <textarea id="resultText" class="form-control" rows="10" readonly></textarea>
+               <!-- Thông tin người phát triển -->
+            <div class="mt-4 text-center">
+                <h4 class="text-info">Thông Tin Người Phát Triển</h4>
+                <p><strong>Tên:</strong> Võ Hoài Danh</p>
+                <p><strong>Email:</strong> danhvohoai@gmail.com</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/vohoaidanh" target="_blank">https://github.com/vohoaidanh</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap & Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
