@@ -7,8 +7,6 @@ from dotenv import load_dotenv
 load_dotenv()
 api_key = os.getenv("API_KEY")
 
-api_key = "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"  # Thay thế bằng API key của bạn
-
 client = Groq(
     api_key=api_key
 )
